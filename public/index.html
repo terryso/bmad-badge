@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMAD Badge - Dynamic Version Badge for BMAD METHOD</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #f6f8fa;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #24292e;
+    }
+    .tagline {
+      font-size: 1.2em;
+      color: #586069;
+      margin-bottom: 30px;
+    }
+    .badge-preview {
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .badge-preview img {
+      vertical-align: middle;
+    }
+    h2 {
+      font-size: 1.5em;
+      margin: 30px 0 15px;
+      color: #24292e;
+    }
+    h3 {
+      font-size: 1.2em;
+      margin: 20px 0 10px;
+      color: #24292e;
+    }
+    code {
+      background: #f1f8ff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #24292e;
+      color: #f6f8fa;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 15px 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #e1e4e8;
+    }
+    th {
+      background: #f6f8fa;
+      font-weight: 600;
+    }
+    .demo-form {
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .demo-form input {
+      padding: 8px 12px;
+      border: 1px solid #e1e4e8;
+      border-radius: 4px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .demo-form button {
+      padding: 8px 16px;
+      background: #0366d6;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .demo-form button:hover {
+      background: #0256c5;
+    }
+    #preview-result {
+      margin-top: 15px;
+      padding: 15px;
+      background: #f6f8fa;
+      border-radius: 4px;
+      min-height: 50px;
+    }
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e1e4e8;
+      color: #586069;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>BMAD Badge</h1>
+  <p class="tagline">Dynamic version badge for projects using BMAD METHOD</p>
+
+  <div class="badge-preview">
+    <img src="https://img.shields.io/badge/BMAD-v6.0.0--Beta.8-007ec6" alt="BMAD Badge Example">
+    <span style="margin-left: 10px; color: #586069;">Example badge</span>
+  </div>
+
+  <h2>Usage</h2>
+  <p>Add this to your README.md:</p>
+  <pre><code>[![BMAD](https://bmad-badge.vercel.app/{owner}/{repo}.svg)](https://github.com/bmad-code-org/BMAD-METHOD)</code></pre>
+
+  <p>Replace <code>{owner}</code> and <code>{repo}</code> with your GitHub username and repository name.</p>
+
+  <h2>Try It</h2>
+  <div class="demo-form">
+    <input type="text" id="owner-input" placeholder="Owner (e.g., nick)" value="nick">
+    <input type="text" id="repo-input" placeholder="Repo (e.g., bmad-starter-kit)" value="bmad-starter-kit">
+    <button onclick="generatePreview()">Generate Badge</button>
+    <div id="preview-result"></div>
+  </div>
+
+  <h2>Options</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>style</code></td>
+        <td>Badge style: <code>flat</code> or <code>flat-square</code></td>
+        <td><code>flat</code></td>
+      </tr>
+      <tr>
+        <td><code>color</code></td>
+        <td>Custom color (hex without #)</td>
+        <td>Auto (based on version)</td>
+      </tr>
+      <tr>
+        <td><code>label</code></td>
+        <td>Custom label text</td>
+        <td><code>BMAD</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Examples</h3>
+  <pre><code>&lt;!-- Flat style (default) --&gt;
+[![BMAD](https://bmad-badge.vercel.app/nick/my-project.svg)]
+
+&lt;!-- Flat-square style --&gt;
+[![BMAD](https://bmad-badge.vercel.app/nick/my-project.svg?style=flat-square)]
+
+&lt;!-- Custom color --&gt;
+[![BMAD](https://bmad-badge.vercel.app/nick/my-project.svg?color=ff69b4)]</code></pre>
+
+  <h2>Color Rules</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Version Type</th>
+        <th>Color</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Stable (e.g., 1.0.0)</td>
+        <td><span style="display:inline-block;width:16px;height:16px;background:#97ca00;border-radius:3px;vertical-align:middle;"></span> Green</td>
+      </tr>
+      <tr>
+        <td>Beta (e.g., 1.0.0-Beta.1)</td>
+        <td><span style="display:inline-block;width:16px;height:16px;background:#007ec6;border-radius:3px;vertical-align:middle;"></span> Blue</td>
+      </tr>
+      <tr>
+        <td>Alpha (e.g., 1.0.0-Alpha.1)</td>
+        <td><span style="display:inline-block;width:16px;height:16px;background:#fe7d37;border-radius:3px;vertical-align:middle;"></span> Orange</td>
+      </tr>
+      <tr>
+        <td>Not installed</td>
+        <td><span style="display:inline-block;width:16px;height:16px;background:#9f9f9f;border-radius:3px;vertical-align:middle;"></span> Gray</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>How It Works</h2>
+  <ol>
+    <li>The badge service queries the GitHub API for your repository</li>
+    <li>It looks for <code>_bmad/_config/manifest.yaml</code></li>
+    <li>Extracts the version from <code>installation.version</code></li>
+    <li>Generates an SVG badge with appropriate color</li>
+  </ol>
+
+  <footer>
+    <p>
+      <a href="https://github.com/bmad-code-org/BMAD-METHOD">BMAD METHOD</a> |
+      <a href="https://github.com/nick/bmad-badge">GitHub</a>
+    </p>
+  </footer>
+
+  <script>
+    function generatePreview() {
+      const owner = document.getElementById('owner-input').value.trim();
+      const repo = document.getElementById('repo-input').value.trim();
+      const resultDiv = document.getElementById('preview-result');
+
+      if (!owner || !repo) {
+        resultDiv.innerHTML = '<span style="color: #cb2431;">Please enter both owner and repo</span>';
+        return;
+      }
+
+      const badgeUrl = `https://bmad-badge.vercel.app/${owner}/${repo}.svg`;
+      const markdown = `[![BMAD](${badgeUrl})](https://github.com/bmad-code-org/BMAD-METHOD)`;
+
+      resultDiv.innerHTML = `
+        <p style="margin-bottom: 10px;"><strong>Preview:</strong></p>
+        <img src="${badgeUrl}" alt="BMAD Badge" onerror="this.style.display='none'; this.parentElement.innerHTML += '<span style=\\'color:#cb2431;\\'>Failed to load badge</span>'">
+        <p style="margin-top: 15px;"><strong>Markdown:</strong></p>
+        <code style="display:block;padding:10px;background:#24292e;color:#f6f8fa;border-radius:4px;font-size:12px;word-break:break-all;">${markdown}</code>
+      `;
+    }
+
+    // Generate preview on page load
+    window.onload = generatePreview;
+  </script>
+</body>
+</html>

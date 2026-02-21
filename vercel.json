@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "public": true,
+  "rewrites": [
+    {
+      "source": "/:owner/:repo.svg",
+      "destination": "/api/:owner/:repo"
+    },
+    {
+      "source": "/:owner/:repo",
+      "destination": "/api/:owner/:repo"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/:owner/:repo.svg",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "image/svg+xml"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=3600"
+        }
+      ]
+    }
+  ]
+}

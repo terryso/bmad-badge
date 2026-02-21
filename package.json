@@ -1,0 +1,20 @@
+{
+  "name": "bmad-badge",
+  "version": "1.0.0",
+  "description": "Dynamic badge for BMAD METHOD version detection",
+  "main": "api/[owner]/[repo].js",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.1"
+  },
+  "devDependencies": {
+    "vercel": "^37.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

@@ -64,9 +64,17 @@ Result: [![BMAD](https://bmad-badge.vercel.app/terryso/bmad-starter-kit.svg)](ht
 ## How It Works
 
 1. The badge service queries the GitHub API for your repository
-2. It looks for `_bmad/_config/manifest.yaml`
-3. Extracts the version from `installation.version`
-4. Generates an SVG badge with appropriate color
+2. It looks for BMAD manifest files (supports both v4 and v6):
+   - **v6**: `_bmad/_config/manifest.yaml` → `installation.version`
+   - **v4**: `.bmad-core/install-manifest.yaml` → `version`
+3. Generates an SVG badge with appropriate color
+
+## Supported BMAD Versions
+
+| Version | Manifest Path | Version Field |
+|---------|---------------|---------------|
+| v6.x | `_bmad/_config/manifest.yaml` | `installation.version` |
+| v4.x | `.bmad-core/install-manifest.yaml` | `version` |
 
 ## Development
 
